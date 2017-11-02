@@ -1,5 +1,5 @@
-#AOP
-##*添加依赖*
+# AOP
+## 添加依赖
 
 ```
 repositories {
@@ -7,8 +7,8 @@ repositories {
 }
 compile 'com.devin:tool-aop:1.0.0'
 ```
-##配置
-####1、Project - build.gradle 配置
+## 配置
+#### 1、Project - build.gradle 配置
 
 ```
 dependencies {
@@ -17,7 +17,7 @@ dependencies {
     classpath 'org.aspectj:aspectjweaver:1.8.10'
 }
 ```
-####2、App - build.gradle配置
+#### 2、App - build.gradle配置
 ```
 放在最后就可以
 
@@ -39,7 +39,7 @@ variants.all { variant ->
 }
 ```
 
-####3、Module - build.gradle配置
+#### 3、Module - build.gradle配置
 
 ```
 放在最后就可以
@@ -61,8 +61,8 @@ variants.all { variant ->
     }
 }
 ```
-##如何使用
-####1、权限申请@Permission
+## 如何使用
+#### 1、权限申请@Permission
 
 ```
 @Permission(value = Manifest.permission.CALL_PHONE, must = false)
@@ -73,7 +73,7 @@ public void method() {}
 1、value 是 权限的名称
 2、must false 表示如果用户没有授权 申请权限弹窗 会消失 true 表示如果用户没有授权 申请权限弹窗 一直显示 默认值是 false
 ```
-####2、权限申请@SingleClick
+#### 2、权限申请@SingleClick
 
 ```
 @SingleClick(value = 1000)
@@ -85,7 +85,7 @@ value 默认值 1000 毫秒 也可以自己设置（单位是毫秒）
 
 注意事项：@SingleClick要在View的点击事件方法上面加
 ```
-####3、打印方法耗时@SpendTimeLog
+#### 3、打印方法耗时@SpendTimeLog
 
 ```
 打印方法耗时
