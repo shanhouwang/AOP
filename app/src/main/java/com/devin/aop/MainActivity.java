@@ -22,14 +22,14 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.tv_permission).setOnClickListener(new View.OnClickListener() {
             @Override
-            @Permission(value = Manifest.permission.CALL_PHONE)
+            @Permission(value = Manifest.permission.CALL_PHONE, must = true)
             public void onClick(View v) {
                 Toast.makeText(getApplication(), "打电话权限申请成功了", Toast.LENGTH_SHORT).show();
             }
         });
         findViewById(R.id.tv_single_click).setOnClickListener(new View.OnClickListener() {
             @Override
-            @SingleClick
+            @SingleClick(value = 1000)
             public void onClick(View v) {
                 Toast.makeText(getApplication(), "多次点击为一次，可以设定时间", Toast.LENGTH_SHORT).show();
             }
