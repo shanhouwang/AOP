@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.devin.aop.MainActivity">
+
+    <TextView
+        android:id="@+id/tv_permission"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:background="#d8d8d8"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:layout_marginBottom="18dp"
+        android:text="申请权限"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_single_click"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:background="#d8d8d8"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:layout_marginBottom="18dp"
+        android:text="点击事件过滤"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="18dp"
+        android:background="#d8d8d8"
+        android:gravity="center"
+        android:text="方法耗时"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</LinearLayout>
