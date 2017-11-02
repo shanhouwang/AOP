@@ -62,7 +62,12 @@ variants.all { variant ->
 }
 ```
 ## 如何使用
-#### 1、权限申请@Permission
+### 1、注册
+```
+AopUtils.init(this, true);
+
+```
+#### 2、权限申请@Permission
 
 ```
 @Permission(value = Manifest.permission.CALL_PHONE, must = false)
@@ -73,7 +78,7 @@ public void method() {}
 1、value 是 权限的名称
 2、must false 表示如果用户没有授权 申请权限弹窗 点击可消失 true 表示如果用户没有授权 申请权限弹窗 一直显示 默认值是 false
 ```
-#### 2、权限申请@SingleClick
+#### 3、事件过滤@SingleClick
 
 ```
 @SingleClick(value = 1000)
@@ -85,7 +90,7 @@ value 默认值 1000 毫秒 也可以自己设置（单位是毫秒）
 
 注意事项：@SingleClick要在View的点击事件方法上面加
 ```
-#### 3、打印方法耗时@SpendTimeLog
+#### 4、打印方法耗时@SpendTimeLog
 
 ```
 打印方法耗时
@@ -94,4 +99,3 @@ private void method() {}
 
 查看Logcat看方法耗时
 ```
-
