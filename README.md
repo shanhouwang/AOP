@@ -71,7 +71,7 @@ public void method() {}
 参数介绍
 
 1、value 是 权限的名称
-2、must false 表示如果用户没有授权 申请权限弹窗 会消失 true 表示如果用户没有授权 申请权限弹窗 一直显示 默认值是 false
+2、must false 表示如果用户没有授权 申请权限弹窗 点击可消失 true 表示如果用户没有授权 申请权限弹窗 一直显示 默认值是 false
 ```
 #### 2、权限申请@SingleClick
 
