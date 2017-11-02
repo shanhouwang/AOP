@@ -64,8 +64,7 @@ variants.all { variant ->
 ## 如何使用
 ### 1、注册
 ```
-AopUtils.init(this, true);
-
+Application的onCreate方法中调用AopUtils.init(this, debug);
 ```
 #### 2、权限申请@Permission
 
