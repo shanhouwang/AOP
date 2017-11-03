@@ -5,7 +5,9 @@
 repositories {
     jcenter()
 }
-compile 'com.devin:tool-aop:1.0.0'
+compile ('com.devin:tool-aop:1.0.0'){
+    exclude group: 'com.android.support', module: 'appcompat-v7'
+}
 ```
 ## 配置
 #### 1、Project - build.gradle 配置
@@ -94,4 +96,11 @@ private void method() {}
 
 查看Logcat看方法耗时
 ```
+## 混淆配置
+
+```
+-dontwarn com.devin.tool_aop.**
+-keep class com.devin.tool_aop.** {*;}
+```
+
 
