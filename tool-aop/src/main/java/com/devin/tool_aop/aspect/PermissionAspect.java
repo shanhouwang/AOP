@@ -25,6 +25,9 @@ public class PermissionAspect {
     @Around("permission(permission)") // 在连接点进行方法替换
     public void permission(final ProceedingJoinPoint joinPoint, Permission permission) throws Throwable {
         LogUtils.d(TAG, ">>>>>permission");
+        if (AopUtils.mApplication == null) {
+            throw new Exception("AopUtils未初始化");
+        }
         ApplyPermission.get(new ApplyPermission.CallBack() {
             @Override
             public void onGranted() {
