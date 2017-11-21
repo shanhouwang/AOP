@@ -21,6 +21,9 @@ dependencies {
 ```
 放在最后就可以
 
+import org.aspectj.bridge.MessageHandler
+import org.aspectj.tools.ajc.Main
+
 final def variants = project.android.applicationVariants
 
 variants.all { variant ->
@@ -44,7 +47,10 @@ variants.all { variant ->
 ```
 放在最后就可以
 
-final def variants = project.android.applicationVariants
+import org.aspectj.bridge.MessageHandler
+import org.aspectj.tools.ajc.Main
+
+final def variants = project.android.libraryVariants
 
 variants.all { variant ->
     JavaCompile javaCompile = variant.javaCompile
