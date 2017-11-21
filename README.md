@@ -5,9 +5,7 @@
 repositories {
     jcenter()
 }
-compile ('com.devin:tool-aop:1.0.0'){
-    exclude group: 'com.android.support', module: 'appcompat-v7'
-}
+compile 'com.devin:tool-aop:1.0.1'
 ```
 ## 配置
 #### 1、Project - build.gradle 配置
