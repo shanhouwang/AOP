@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.devin.tool_aop.annotation.CatchException;
 import com.devin.tool_aop.annotation.Permission;
 import com.devin.tool_aop.annotation.SingleClick;
 import com.devin.tool_aop.annotation.SpendTimeLog;
@@ -41,11 +42,24 @@ public class MainActivity extends AppCompatActivity {
                 method();
             }
         });
+        findViewById(R.id.tv_catch).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplication(), "捕获异常", Toast.LENGTH_SHORT).show();
+                catchException();
+            }
+        });
     }
 
     @SpendTimeLog
     private void method() {
         for (int i = 0; i < 100 * 100 * 100; i++) {
         }
+    }
+
+    @CatchException
+    private void catchException() {
+        String s = null;
+        s.trim();
     }
 }

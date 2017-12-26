@@ -46,7 +46,7 @@ tasks.withType(Javadoc) {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'org.aspectj:aspectjrt:1.8.10'
+    api 'org.aspectj:aspectjrt:1.8.10'
     implementation 'com.devin:apply-permission:1.0.0'
 }
 

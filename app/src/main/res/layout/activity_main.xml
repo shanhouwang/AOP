@@ -50,4 +50,18 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_catch"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="18dp"
+        android:background="#d8d8d8"
+        android:gravity="center"
+        android:text="捕获异常"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </LinearLayout>
