@@ -46,8 +46,9 @@ tasks.withType(Javadoc) {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    api 'org.aspectj:aspectjrt:1.8.10'
-    implementation 'com.devin:apply-permission:1.0.0'
+    implementation 'org.aspectj:aspectjrt:1.8.10'
+    implementation 'com.devin:apply-permission:1.0.1-Beta'
+    implementation 'com.android.support:appcompat-v7:26.0.2'
 }
 
 // 添加
@@ -55,7 +56,7 @@ publish {
     userOrg = 'shanhouwang' // jCenter用户名
     groupId = 'com.devin'
     artifactId = 'tool-aop' //项目名称
-    publishVersion = '1.0.1' //版本号
+    publishVersion = '1.0.2-Beta' //版本号
     desc = 'a aop tool' // 描述
     website = 'https://github.com/shanhouwang/AOP'
 }

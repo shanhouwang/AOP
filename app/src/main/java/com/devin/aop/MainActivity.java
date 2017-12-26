@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.tv_permission).setOnClickListener(new View.OnClickListener() {
             @Override
-            @Permission(value = Manifest.permission.CALL_PHONE, must = true)
+            @Permission(value = Manifest.permission.CALL_PHONE)
             public void onClick(View v) {
                 Toast.makeText(getApplication(), "打电话权限申请成功了", Toast.LENGTH_SHORT).show();
             }
