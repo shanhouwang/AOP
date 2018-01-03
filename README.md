@@ -5,7 +5,9 @@
 repositories {
     jcenter()
 }
-compile 'com.devin:tool-aop:1.0.1'
+implementation 'com.devin:tool-aop:1.0.2-Beta'
+implementation 'org.aspectj:aspectjrt:1.8.10'
+implementation 'com.devin:apply-permission:1.0.1-Beta'
 ```
 ## 配置
 #### 1、Project - build.gradle 配置
@@ -103,6 +105,12 @@ value 默认值 1000 毫秒 也可以自己设置（单位是毫秒）
 private void method() {}
 
 查看Logcat看方法耗时
+```
+#### 5、方法捕获异常@CatchException
+
+```
+@CatchException
+private void method() {}
 ```
 ## 混淆配置
 
