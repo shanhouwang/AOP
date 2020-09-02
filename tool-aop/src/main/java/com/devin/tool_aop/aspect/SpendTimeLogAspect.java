@@ -31,7 +31,7 @@ public class SpendTimeLogAspect {
 
     @Around("methodAnnotated() || constructorAnnotated()") // 在连接点进行方法替换
     public Object spendTime(ProceedingJoinPoint joinPoint) throws Throwable {
-        if (AopUtils.DEBUG) {
+        if (!AopUtils.DEBUG) {
             // 执行原方法
             return joinPoint.proceed();
         }
