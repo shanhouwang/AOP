@@ -1,9 +1,6 @@
 package com.devin.tool_aop.aspect;
 
-import android.view.View;
-
 import com.devin.tool_aop.LogUtils;
-import com.devin.tool_aop.R;
 import com.devin.tool_aop.annotation.SingleClick;
 
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -12,38 +9,51 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Devin on 17/6/26.
- *
+ * <p>
  * 防止被连续点击，时间间隔 1秒钟
  */
 @Aspect
 public class SingleClickAspect {
 
     public static final String TAG = "Aspect";
-    static int TIME_TAG = R.id.click_time;
+    static Map<String, Long> map = new HashMap<>();
 
-    @Pointcut("execution(@com.devin.tool_aop.annotation.SingleClick * *(..)) && @annotation(singleClick)")// 方法切入点
+    // 方法切入点
+    @Pointcut("execution(@com.devin.tool_aop.annotation.SingleClick * *(..)) && @annotation(singleClick)")
     public void singleClick(SingleClick singleClick) {
     }
 
-    @Around("singleClick(singleClick)")// 在连接点进行方法替换
+    // 在连接点进行方法替换
+    @Around("singleClick(singleClick)")
     public void around(ProceedingJoinPoint joinPoint, SingleClick singleClick) throws Throwable {
-        LogUtils.d(TAG, ">>>>>singleClick");
-        View view = null;
+        StringBuilder keyBuilder = new StringBuilder();
         for (Object arg : joinPoint.getArgs()) {
-            if (arg instanceof View) {
-                view = (View) arg;
+            if (arg instanceof String) {
+                keyBuilder.append((String) arg);
+            } else if (arg instanceof Class) {
+                keyBuilder.append(((Class) arg).getSimpleName());
+            } else {
+                keyBuilder.append(arg.toString());
             }
         }
-        if (view != null) {
-            Object tag = view.getTag(TIME_TAG);
-            long lastClickTime = ((tag != null) ? (long) tag : 0);
-            long currentTime = Calendar.getInstance().getTimeInMillis();
-            if (currentTime - lastClickTime > singleClick.value()) {// 过滤掉singleClick毫秒内的连续点击
-                view.setTag(TIME_TAG, currentTime);
+        String key = keyBuilder.toString();
+        LogUtils.d(TAG, ">>>>>singleClick, key: " + key);
+        long lastClickTime = map.get(key);
+        long currentTime = Calendar.getInstance().getTimeInMillis();
+        if (lastClickTime == 0) {
+            // 执行原方法
+            joinPoint.proceed();
+            map.put(key, currentTime);
+        } else {
+            // 过滤掉singleClick毫秒内的连续点击
+            if (currentTime - lastClickTime > singleClick.value()) {
                 joinPoint.proceed();//执行原方法
+                map.put(key, currentTime);
             }
         }
     }
