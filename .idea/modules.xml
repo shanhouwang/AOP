@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AOP.iml" filepath="$PROJECT_DIR$/AOP.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/tool-aop/tool-aop.iml" filepath="$PROJECT_DIR$/tool-aop/tool-aop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AOP.iml" filepath="$PROJECT_DIR$/AOP.iml" group="AOP" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="AOP/app" />
+      <module fileurl="file://$PROJECT_DIR$/tool-aop/tool-aop.iml" filepath="$PROJECT_DIR$/tool-aop/tool-aop.iml" group="AOP/tool-aop" />
     </modules>
   </component>
 </project>

@@ -30,9 +30,10 @@ public class MainActivity extends AppCompatActivity {
         });
         findViewById(R.id.tv_single_click).setOnClickListener(new View.OnClickListener() {
             @Override
-            @SingleClick(value = 1000)
+            @SingleClick
             public void onClick(View v) {
-                Toast.makeText(getApplication(), "多次点击为一次，可以设定时间", Toast.LENGTH_SHORT).show();
+                click();
+                // Toast.makeText(getApplication(), "多次点击为一次，可以设定时间", Toast.LENGTH_SHORT).show();
             }
         });
         findViewById(R.id.tv_time).setOnClickListener(new View.OnClickListener() {
@@ -55,6 +56,15 @@ public class MainActivity extends AppCompatActivity {
     private void method() {
         for (int i = 0; i < 100 * 100 * 100; i++) {
         }
+    }
+
+    private int index = 0;
+
+    @SingleClick
+    private String click() {
+        index++;
+        System.out.println(">>>>>click, index: " + index);
+        return "";
     }
 
     @CatchException

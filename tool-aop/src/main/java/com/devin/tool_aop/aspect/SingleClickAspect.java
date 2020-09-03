@@ -30,21 +30,23 @@ public class SingleClickAspect {
 
     // 在连接点进行方法替换
     @Around("singleClick(singleClick)")
-    public void around(ProceedingJoinPoint joinPoint, SingleClick singleClick) throws Throwable {
+    public Object around(ProceedingJoinPoint joinPoint, SingleClick singleClick) throws Throwable {
         String key = joinPoint.toString();
         LogUtils.d(TAG, ">>>>>singleClick, key: " + key);
         Long lastClickTime = map.get(key);
         long currentTime = Calendar.getInstance().getTimeInMillis();
         if (lastClickTime == null || lastClickTime == 0) {
-            // 执行原方法
-            joinPoint.proceed();
             map.put(key, currentTime);
+            // 执行原方法
+            return joinPoint.proceed();
         } else {
             // 过滤掉singleClick毫秒内的连续点击
             if (currentTime - lastClickTime > singleClick.value()) {
-                joinPoint.proceed();//执行原方法
                 map.put(key, currentTime);
+                // 执行原方法
+                return joinPoint.proceed();
             }
         }
+        return null;
     }
 }
