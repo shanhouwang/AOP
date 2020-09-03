@@ -31,21 +31,11 @@ public class SingleClickAspect {
     // 在连接点进行方法替换
     @Around("singleClick(singleClick)")
     public void around(ProceedingJoinPoint joinPoint, SingleClick singleClick) throws Throwable {
-        StringBuilder keyBuilder = new StringBuilder();
-        for (Object arg : joinPoint.getArgs()) {
-            if (arg instanceof String) {
-                keyBuilder.append((String) arg);
-            } else if (arg instanceof Class) {
-                keyBuilder.append(((Class) arg).getSimpleName());
-            } else {
-                keyBuilder.append(arg.toString());
-            }
-        }
-        String key = keyBuilder.toString();
+        String key = joinPoint.toString();
         LogUtils.d(TAG, ">>>>>singleClick, key: " + key);
-        long lastClickTime = map.get(key);
+        Long lastClickTime = map.get(key);
         long currentTime = Calendar.getInstance().getTimeInMillis();
-        if (lastClickTime == 0) {
+        if (lastClickTime == null || lastClickTime == 0) {
             // 执行原方法
             joinPoint.proceed();
             map.put(key, currentTime);
